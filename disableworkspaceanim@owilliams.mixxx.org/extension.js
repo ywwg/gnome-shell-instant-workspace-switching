@@ -1,11 +1,9 @@
 const Lang = imports.lang;
 const Tweener = imports.ui.tweener;
 
-const WindowManager = imports.ui.windowManager;
-
 const wm = imports.ui.main.wm;
 
-let myhandlerID;
+let _switchWorkspaceId;
 
 function init() {
 }
@@ -25,11 +23,11 @@ function enable() {
     // The workspace switch animation is triggered by a signal, so we can't
     // easily replace the function or bind to a new function because the old
     // binding will still exist.  Instead, add an additional binding that
-    // blows away the animations after they are created.
-    myhandlerID = global.window_manager.connect('switch-workspace', Lang.bind(wm, removeSwitchTweens));
+    // removes the animations after they are created.
+    _switchWorkspaceId = global.window_manager.connect('switch-workspace', Lang.bind(wm, removeSwitchTweens));
 }
 
 function disable() {
-    global.window_manager.disconnect(myhandlerID);
+    global.window_manager.disconnect(_switchWorkspaceId);
 }
 
