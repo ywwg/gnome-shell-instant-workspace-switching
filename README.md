@@ -11,3 +11,6 @@ A gnome-shell extension that eliminates the switch time between workspaces witho
 
 1. Open gnome-tweak-tool and enable the extension.  It should take effect immediately.
 
+## Publishing
+
+Go to https://extensions.gnome.org/upload/ and follow the instructions

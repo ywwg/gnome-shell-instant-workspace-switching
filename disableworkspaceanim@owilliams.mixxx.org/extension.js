@@ -1,5 +1,5 @@
 const Lang = imports.lang;
-const Tweener = imports.ui.tweener;
+const Tweener = imports.tweener.tweener;
 
 const wm = imports.ui.main.wm;
 
