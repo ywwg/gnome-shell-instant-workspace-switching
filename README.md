@@ -13,4 +13,11 @@ A gnome-shell extension that eliminates the switch time between workspaces witho
 
 ## Publishing
 
+1. Zip the files with:
+
+   ```
+   cd disableworkspaceanim@owilliams.mixxx.org
+   zip ../disableworkspaceanim@owilliams.mixxx.org.zip *
+   ```
+
 Go to https://extensions.gnome.org/upload/ and follow the instructions
