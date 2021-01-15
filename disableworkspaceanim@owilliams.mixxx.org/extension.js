@@ -1,5 +1,4 @@
 const Lang = imports.lang;
-const Tweener = imports.tweener.tweener;
 
 const wm = imports.ui.main.wm;
 
@@ -13,8 +12,7 @@ function removeSwitchTweens(shellwm, from, to, direction) {
     if (!switchData) {
         return;
     }
-    Tweener.removeTweens(switchData.inGroup);
-    Tweener.removeTweens(switchData.outGroup);
+    this._switchData.container.remove_all_transitions();
     // We've removed the onComplete call so we must call it explicitly.
     this._switchWorkspaceDone(shellwm);
 }
