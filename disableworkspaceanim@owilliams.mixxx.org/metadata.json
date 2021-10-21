@@ -1,1 +1,9 @@
-{"description": "Makes switching between workspaces instant without disabling other animations", "name": "Disable Workspace Switch Animation", "shell-version": ["3.38"], "uuid": "disableworkspaceanim@owilliams.mixxx.org"}
+{
+	"description": "Makes switching between workspaces instant without disabling other animations",
+	"name": "Disable Workspace Switch Animation",
+	"shell-version": [
+		"40",
+		"41"
+	],
+	"uuid": "disableworkspaceanim@owilliams.mixxx.org"
+}

@@ -1,6 +1,4 @@
 const Lang = imports.lang;
-const Tweener = imports.tweener.tweener;
-
 const wm = imports.ui.main.wm;
 
 let _switchWorkspaceId;
@@ -8,15 +6,9 @@ let _switchWorkspaceId;
 function init() {
 }
 
-function removeSwitchTweens(shellwm, from, to, direction) {
-    let switchData = this._switchData;
-    if (!switchData) {
-        return;
-    }
-    Tweener.removeTweens(switchData.inGroup);
-    Tweener.removeTweens(switchData.outGroup);
-    // We've removed the onComplete call so we must call it explicitly.
-    this._switchWorkspaceDone(shellwm);
+function cancelAnimation(shellwm, from, to, direction) {
+    this._workspaceAnimation.cancelSwitchAnimation();
+    this._switchWorkspaceDone();
 }
 
 function enable() {
@@ -24,7 +16,7 @@ function enable() {
     // easily replace the function or bind to a new function because the old
     // binding will still exist.  Instead, add an additional binding that
     // removes the animations after they are created.
-    _switchWorkspaceId = global.window_manager.connect('switch-workspace', Lang.bind(wm, removeSwitchTweens));
+    _switchWorkspaceId = global.window_manager.connect('switch-workspace', Lang.bind(wm, cancelAnimation));
 }
 
 function disable() {

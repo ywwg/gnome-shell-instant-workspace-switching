@@ -13,4 +13,23 @@ A gnome-shell extension that eliminates the switch time between workspaces witho
 
 ## Publishing
 
-Go to https://extensions.gnome.org/upload/ and follow the instructions
+1. Zip the files with:
+
+   ```zip -j disableworkspaceanim@owilliams.mixxx.org.zip disableworkspaceanim@owilliams.mixxx.org/*
+   ```
+
+1. Go to https://extensions.gnome.org/upload/ and follow the instructions
+
+## Debugging Tips
+
+### Track log output
+
+```bash
+journalctl -f /usr/bin/gnome-shell
+```
+
+### Restart gnome-shell safely
+
+```bash
+busctl --user call org.gnome.Shell /org/gnome/Shell org.gnome.Shell Eval s 'Meta.restart("Restarting…")'
+```
